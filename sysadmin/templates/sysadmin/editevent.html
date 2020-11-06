@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+
+
+<body>
+<form action="" method="POST">
+
+
+<table style="margin-top:1%;margin-bottom:0%" width="100%" class="table  table-bordered" id="dataTables-example">
+        
+      <div class="container-fluid">
+            
+            <div class="card card-primary">
+
+                <div class="card-body">
+
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <input autofocus type="text" name="description" class="form-control" id="description" placeholder="Description" value="{{ gdata.description }}" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input type="text" value="{{ gdata.amount }}" name="amount" class="form-control" id="amount" placeholder="Amount"  required>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+       
+
+
+</table>
+
+
+
+
+
+<tr>
+     <table style="margin-top:1%;margin-bottom:0%" width="100%" class="table  table-bordered" id="dataTables-example">
+            <td>
+                  <button class="btn btn-lg btn-success btn-block" type ='submit' formaction="/sysadmin/expenses/remove/{{ gdata.id }}/" ><i class="fa fa-times fa-1x"></i></button>
+            </td>
+             <td>
+               
+              <button class="btn btn-lg btn-success btn-block" type ='submit' formaction="/sysadmin/expenses/change/{{ gdata.id }}/"><i class="fa fa-check fa-1x"></i> </button>
+                </td>
+
+     </table>
+ </tr>
+
+</form>
+
+</body>
+
+
+
+<script type="text/javascript" language="javascript">
+    function roles(vid){
+        // alert(vid);
+        var state = vid;
+        var url = "/sysadmin/income/edit/";
+        var i = 0;
+        var data='userid='+state;
+        $.ajax({
+            type:"POST",
+            url:url,
+            data:data,
+            success:function(html) {
+                $("#psychomotor").html(html);
+                getdialogpsyco();
+            }
+        });
+        return false;
+    }
+
+</script>
+<script type="text/javascript" language="javascript">
+    function getdialogpsyco(){
+        var dialogOpts = {
+            autoOpen:true,
+            appendTo:"body",
+            // modal:true,
+            // position: [ "middle","center"],
+            height:'auto',
+            width:'auto',
+            title:' Press ESC to close this box' ,
+            closeOnEscape:true,
+            show: true,
+            // hide: true,
+            bgiframe: true
+        };
+        $("#psychomotor").dialog(dialogOpts);
+    }
+
+</script>
+</html>

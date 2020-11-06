@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+{% load humanize %}
+
+<body>
+<table width="100%" class="table  table-bordered " id="dataTables-example">
+
+    <tr >
+        <td  style="background-color:#d3d3d3;font-size:0.9em;color:blue;font-weight:bold;text-align:center" >Income sources for  {{ month }} {{ year }}</td>
+    </tr>
+
+</table>
+<table width="100%" class="table  table-bordered " id="dataTables-example">
+
+  
+<tr style='font-weight:bold;text-align:center'>
+    <td >S/N</td>
+    <td >Source</td>
+    <td >Amount</td>
+</tr>
+
+{% if income %}  
+        {% for pincode in income %}
+            <tr style="text-align:center">
+            <td > {{ forloop.counter }}.</td>
+            <td > <a href="#" onClick= "allinc({{ pincode.id  }})" title="Edit {{ pincode.description }}">{{ pincode.description.upper }}  </a> </td>
+            <td >  {{ pincode.amount|intcomma}} </td>
+        {% endfor %}
+    {% else %}
+        <td style = "background-color:white;font-size:11px;width:auto;color:#000000">  .......No Record Found For {{month}},  {{year}}................</td>
+    {% endif %}
+    </tr>
+</table>
+
+</body>
+
+<div id="inc" ></div>
+
+
+<script type="text/javascript" language="javascript">
+    function allinc(vid){
+        // alert(vid);
+        var state = vid;
+        var url = "/sysadmin/income/edit/";
+        var i = 0;
+        var data='userid='+state;
+        $.ajax({
+            type:"POST",
+            url:url,
+            data:data,
+            success:function(html) {
+                $("#inc").html(html);
+                getdialOpts();
+            }
+        });
+        return false;
+    }
+
+</script>
+<script type="text/javascript" language="javascript">
+    function getdialOpts(){
+        var dialOpts = {
+            autoOpen:true,
+            // appendTo:"body",
+            // modal:true,
+            // position: [ "middle","center"],
+            height:'auto',
+            width:'auto',
+            title:' Press ESC to close this box' ,
+            closeOnEscape:true,
+            show: true,
+            hide: true,
+            bgiframe: true
+        };
+        $("#inc").dialog(dialOpts);
+    }
+
+</script>
+</html>

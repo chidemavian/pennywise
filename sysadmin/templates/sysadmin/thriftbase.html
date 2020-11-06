@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pennywise 3.5 | Thrifts</title>
+
+
+<link rel="shortcut icon" href="/static/logo/thrift.png" />
+<script src='/static/mato/JS/jquery-1.5.js'></script>
+
+<!-- Calendar Resources-  -->
+<link type="text/css" rel="Stylesheet" href="/static/mato/JS/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="/static/mato/JS/css/hot-sneaks/jquery-ui-1.8.18.custom.css" />
+
+<!--jquery capbility-->
+<script src='/static/mato/JS/jquery-1.7.1.min.js'></script>
+<script src='/static/mato/JS/jquery-ui-1.8.18.custom.min.js'></script>
+
+
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/static/mato/fontawesome-free/css/all.min.css">
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="/static/mato/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/static/mato/icheck-bootstrap/icheck-bootstrap.min.css">
+
+
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/mato/dist/css/adminlte.min.css">
+
+
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="/static/mato/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+
+
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/static/mato/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="/static/mato/plugins/summernote/summernote-bs4.min.css">
+</head>
+
+
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+
+
+<div class="wrapper">
+
+
+
+
+
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+
+
+
+
+
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+
+
+
+
+<!-- User Dropdown Menu -->
+       <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-fw"></i> welcome, {{user}}!
+                <i class="fa fa-caret-down"></i>
+            </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <i class="fas fa-user"></i>
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  User Profile
+                </h3>
+              </div>
+
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+           <a href="/staff/staff/home/" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <i class="fas fa-user"></i>
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Quick guide
+                </h3>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <i class="fas fa-user"></i>
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Change Password
+                </h3>
+              </div>
+
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+           <a href="/logout/" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <i class="fas fa-user"></i>
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Log Out
+                </h3>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+        </div>
+     </li>
+
+ </ul>
+</nav>
+
+
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <img src="/static/logo/thrift.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Pennywise  3.5</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+
+
+          <li class="nav-item">
+            <a href="/dashboard/" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+
+
+
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                INCOME
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/staff/staff/home/" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Quick guide</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="/sysadmin/income/" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Income</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-address-card"></i>
+              <p>
+                BUDGET
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="/staff/staff/home/" class="nav-link">
+                  <i class="far fa-square nav-icon"></i>
+                  <p>Quick guide</p>
+                </a>
+              </li>
+
+
+              <li class="nav-item">
+                <a href="/sysadmin/budget/" class="nav-link">
+                  <i class="far fa-square nav-icon"></i>
+                  <p>Budget</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-address-card"></i>
+              <p>
+                EVENTS
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-square nav-icon"></i>
+                  <p>Quick guide</p>
+                </a>
+              </li>
+
+
+              <li class="nav-item">
+                <a href="/sysadmin/event/" class="nav-link">
+                  <i class="far fa-square nav-icon"></i>
+                  <p>Events</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+
+
+<!--           <li class="nav-item">
+            <a href="/logout/" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>Log out</p>
+            </a>
+          </li>
+ -->
+      
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+
+
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark"><i class="nav-icon fas fa-money-bill-alt"></i>Bugdet</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+   <section class="content">
+
+
+              {% block content%}
+              {% endblock %}
+
+      <div class="row">
+          <td><div class="box"></div></td>
+      </div>
+    </section>
+  </div>
+
+
+
+  <footer class="main-footer">
+
+    <strong>Copyright &copy; 2018-2020. Pennywise  <b>  V</b> 3.5.0-Premium Version</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b><a href="#">Powered by Adysys Technologies Ltd</a></b>
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/static/mato/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="/static/mato/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="/static/mato/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="/static/mato/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="/static/mato/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="/static/mato/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="/static/mato/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="/static/mato/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="/static/mato/plugins/moment/moment.min.js"></script>
+<script src="/static/mato/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="/static/mato/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Bootstrap Switch -->
+<script src="/static/mato/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- Summernote -->
+<script src="/static/mato/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="/static/mato/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/static/mato/dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/static/mato/dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="/static/mato/dist/js/pages/dashboard.js"></script>
+<!-- InputMask -->
+<script src="/static/mato/plugins/moment/moment.min.js"></script>
+<script src="/static/mato/plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="/static/mato/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+
+
+
+<script>
+  $(function () {
+ 
+    //Money Euro
+    $('[data-mask]').inputmask()
+  })
+</script>
+
+</body>
+</html>
+ 

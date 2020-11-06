@@ -1,0 +1,148 @@
+
+
+{% extends 'sysadmin/thriftbase.html' %}
+{% block content %}
+
+
+
+<div style="text-align:center">Event Menu </div>
+
+   <table style="margin-top:0%;margin-bottom:01%" width="100%" class="table  table-bordered" id="dataTables-example">
+
+    <tr style="text-align:center;">
+        <td ><a href="/sysadmin/income/" style="color:red">Income</a></td>
+        <td  ><a href="/sysadmin/budget/" style="color:red;font-size:0.9em">Budget</a></td>
+        <td  style="background:blue;font-size:0.9em"><a href="/sysadmin/event/" style="color:white;font-size:0.9em">Expenses tracking</a></td>
+    </tr>
+</table>
+
+ <div>{{msg}}</div>
+ 
+<tr >
+
+       <form action="/sysadmin/budget/" method="POST"  enctype="multipart/form-data" >
+   
+    <section class="content">
+      <div class="container-fluid">
+            
+            <!-- general form elements -->
+            <div class="card card-primary">
+
+                <div class="card-body">
+
+                      <div class="form-group">
+                        <label for ="year">Year</label>
+                        <select required name= "year" id = "year" class="form-control" >
+                          <!-- <option >-----</option> -->
+                          <option  >2020</option>
+                        </select>
+                      </div>
+
+
+                    
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Month</label>
+                        <select name= "month" id="month" class="form-control">
+                          <option>January</option>
+                          <option>February</option>
+                          <option>March</option>
+                          <option>April</option>
+                          <option>May</option>
+                          <option>June</option>
+                          <option>July</option>
+                          <option>August</option>
+                          <option>September</option>
+                          <option>October</option>
+                          <option>Nvoember</option>
+                          <option>December</option>
+                        </select>
+                      </div>
+                </div>
+              </div>
+            </div>
+
+
+<!--              <div class="card-footer">
+            <td >
+              <input class="btn btn-lg btn-success btn-block" name="submit" type= "submit" value="Save Budget">
+            </td>
+          </div> -->
+
+
+        <table width="100%" class="table  table-bordered" id="dataTables-example">
+         <td >
+              <div class="boxnn"></div>
+              </td>
+        </table>
+
+      </section>
+      </form>
+            </div>
+
+</div>
+
+</section>
+
+
+
+
+</tr>
+
+
+ <script>
+        $(document).ready(function() {
+            var pickerOpts = {
+                //appendText: "mm/dd/yy",
+                //defaultDate: "+5",
+                showOtherMonths: true,
+                changeMonth: true,
+                changeYear: true,
+                dateFormat:"yy-mm-dd"
+            };
+
+            eventclass();
+        });
+    </script>
+ 
+
+   <script type="text/javascript" >
+        $(document).ready(function() {
+
+            $("#month").change(function () {
+                eventclass();
+            });
+            $("#year").change(function () {
+                eventclass();
+            });
+
+        });
+    </script>
+
+
+    <script type="text/javascript" language="javascript">
+        function eventclass(){
+            var state = $("#year").val()+ ':'+ $("#month").val();
+                // alert (state)
+            var url = "/sysadmin/myevent/";
+            var i = 0;
+            var data='userid='+state;
+            $.ajax({
+                type:"POST",
+                url:url,
+                data:data,
+                success:function(html) {
+                    $(".boxnn").show();
+                    $(".boxnn").html(html);
+                }
+            });
+            return false;
+        }
+    </script>
+
+
+
+{% endblock %}
+
+
+

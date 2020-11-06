@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+
+{% load humanize %}
+<body1>
+
+<table width="100%" class="table  table-bordered " id="dataTables-example">
+
+    <tr >
+        <td  style="font-size:0.9em;color:blue;font-weight:bold;text-align:center" >Enter expenditures against each budget item for {{ month }} {{ year }} by clicking the adjascent pie chart icon</td>
+    </tr>
+    
+</table>
+
+
+<table width="100%" class="table  table-bordered " id="dataTables-example">
+
+
+
+{% if allevent %}
+
+ {% for pincode in allevent %}
+
+
+        {% if pincode.budget %}
+<table style="margin-top:0%;margin-bottom:0%" width="100%" class="table  table-bordered " id="dataTables-example">
+
+        <tr style="text-align:center">
+        
+            <td > {{ pincode.budget.description.upper }}  </td>
+
+            <td > <span style="text-decoration:line-through">N</span> {{ pincode.budget.amount|intcomma}} </td>
+
+            <td> <a href="#" onClick= "mybug({{ pincode.budget.id  }})" title="Edit this budget"><i class="fas fa-chart-pie"></i></a></td>
+        </tr>
+</table>
+
+
+
+<table style="margin-top:0%;margin-bottom:04%" width="100%" class="table  table-bordered " id="dataTables-example">
+         {% if pincode.event %}
+            <tr style='font-weight:bold;text-align:center'>
+            <td >S/N</td>
+            <td >Expenditures</td>
+            <td >Amount</td>
+            </tr>
+            {% for eve in pincode.event %}
+            <tr style="text-align:center">
+            <td > {{ forloop.counter }}.</td>
+            <td > <a href="#" onClick= "events({{ eve.id  }})" title="Edit this expenses">{{ eve.description.upper }} </a></td>
+            <td > <span style="text-decoration:line-through">N</span> {{ eve.amount|intcomma}} </td>
+        </tr>
+            {% endfor %}
+</table>
+<table style="margin-top:0%;margin-bottom:04%" width="100%" class="table  table-bordered " id="dataTables-example">
+        <tr style='font-weight:bold;text-align:center'>
+            <td>Budget:   {{ pincode.budget.amount|intcomma}}</td>
+            <td> Expenditure:    {{pincode.total|intcomma}}</td>
+            <!-- <td> Balance:   {{pincode.bal|intcomma}}</td></tr> -->
+        </tr>
+    {% else %}
+        <tr style='font-weight:bold;text-align:center'>    <td style = "font-size:0.9em;width:auto;color:#000000">  No Record Found For {{month}},  {{year}}. Click the pie chart icon to get started</td>
+        </tr>
+        
+    {% endif %}
+</table>
+
+ {% endif %}
+
+
+{% endfor %}
+
+
+{% else %}
+
+
+        <td style = "background-color:white;font-size:11px;width:auto;color:#000000">  .......No Record Found For {{month}},  {{year}}................</td>
+    {% endif %}
+</table>
+
+
+<div id="psychomotor" title="Enter Psychomotor"></div>
+<div id="psy" ></div>
+
+<script type="text/javascript" language="javascript">
+    function mybug(vid){
+        // alert(vid);
+        var state = vid;
+        var url = "/sysadmin/myevent/edit/";
+        var i = 0;
+        var data='userid='+state;
+        $.ajax({
+            type:"POST",
+            url:url,
+            data:data,
+            success:function(html) {
+                $("#psychomotor").html(html);
+                getdialogpsyco();
+            }
+        });
+        return false;
+    }
+
+</script>
+<script type="text/javascript" language="javascript">
+    function getdialogpsyco(){
+        var dialogOpts = {
+            autoOpen:true,
+            // appendTo:"body1",
+            modal:true,
+            // position: [ "middle","center"],
+            height:"auto",
+            width:"auto",
+            title:' Click the box to close this box' ,
+            closeOnEscape:true,
+            show: true,
+            hide: true,
+            bgiframe: true
+        };
+        $("#psychomotor").dialog(dialogOpts);
+    }
+
+</script>
+
+
+
+<script type="text/javascript" language="javascript">
+    function events(vid){
+        // alert(vid);
+        var state = vid;
+        var url = "/sysadmin/expenses/edit/";
+        var i = 0;
+        var data='userid='+state;
+        $.ajax({
+            type:"POST",
+            url:url,
+            data:data,
+            success:function(html) {
+                $("#psy").html(html);
+                getdial();
+            }
+        });
+        return false;
+    }
+
+</script>
+<script type="text/javascript" language="javascript">
+    function getdial(){
+        var diaOpts = {
+            autoOpen:true,
+            // appendTo:"body",
+            // modal:true,
+            // position: [ "middle","center"],
+            height:'auto',
+            width:'auto',
+            title:' Press ESC to close this box' ,
+            closeOnEscape:true,
+            show: true,
+            hide: true,
+            bgiframe: true
+        };
+        $("#psy").dialog(getdial);
+    }
+
+</script>
+</body1>
+</html>
